@@ -7,6 +7,7 @@ import telemetryRouter from './routes/telemetry.ts';
 import audienceRouter from './routes/audience.ts';
 import { init } from './lib/init.ts';
 import rateLimiter from './lib/rateLimiter.ts';
+import log from './lib/log.ts';
 
 const defaultPort = 3010;
 const parsedPort = Deno.env.has('PORT')
@@ -40,12 +41,18 @@ app.use(async (ctx, next) => {
 		await next();
 	} catch (err) {
 		ctx.response.status = 500;
-		console.error(err);
+		log.error(
+			`Error: ${(err as Error).message}; Stack: ${
+				(err as Error)?.stack ?? 'not available'
+			}`,
+		);
 
 		if (Deno.env.get('ENV') === 'dev') {
 			ctx.response.body = {
 				error: 'APP_ERROR',
-				message: `Error: ${err.message}; Stack: ${err.stack}`,
+				message: `Error: ${(err as Error).message}; Stack: ${
+					(err as Error)?.stack ?? 'not available'
+				}`,
 			};
 		} else {
 			ctx.response.body = {
@@ -81,15 +88,15 @@ app.use((ctx) => {
 });
 
 init().then(() => {
-	console.log('Starting Oak server...');
+	log.log('Starting Oak server...');
 
 	app.listen({ port }).then(() => {
-		console.log('Listening at http://localhost:' + port);
+		log.log('Listening at http://localhost:' + port);
 	});
 });
 
 function exit() {
-	console.log('Shutting down...');
+	log.log('Shutting down...');
 	Deno.exit();
 }
 

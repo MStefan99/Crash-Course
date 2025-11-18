@@ -28,6 +28,8 @@ function logout() {
 </script>
 
 <style scoped>
+@import '../assets/style.css';
+
 label {
 	display: block;
 }

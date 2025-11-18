@@ -199,7 +199,10 @@ export const AuthAPI = {
 		}),
 	register: (username: User['username'], password: NewUser['password']) =>
 		new Promise<User>((resolve, reject) => {
-			request<AuthResponse>('/register', {method: RequestMethod.POST, body: {username, password}})
+			request<AuthResponse>('/register', {
+				method: RequestMethod.POST,
+				body: {username, password}
+			})
 				.then((data) => {
 					appState.setApiKey(data.key);
 					appState.setUser(data.user);
@@ -289,7 +292,10 @@ export const AppAPI = {
 			query: {start, end}
 		}),
 	getPageAggregate: (id: App['id'], start?: number, end?: number) =>
-		request<PageAggregate>('/apps/' + id + '/pages/aggregate', {auth: true, query: {start, end}}),
+		request<PageAggregate>('/apps/' + id + '/pages/aggregate', {
+			auth: true,
+			query: {start, end}
+		}),
 	getLogs: (
 		id: App['id'],
 		type: 'server' | 'client',

@@ -217,6 +217,8 @@ async function deleteApp() {
 </script>
 
 <style scoped>
+@import '../assets/style.css';
+
 .row > .card {
 	flex-basis: 500px;
 }

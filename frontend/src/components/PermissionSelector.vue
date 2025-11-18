@@ -41,6 +41,8 @@ watch(permissions, () => {
 </script>
 
 <style scoped>
+@import '../assets/style.css';
+
 input {
 	@apply mr-2;
 }

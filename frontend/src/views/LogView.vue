@@ -128,6 +128,8 @@ onUnmounted(() => clearInterval(refreshInterval));
 </script>
 
 <style scoped>
+@import '../assets/style.css';
+
 .history-chart {
 	min-width: min(90vw, 1024px);
 }

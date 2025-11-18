@@ -36,8 +36,8 @@
 					td {{new Date(session.time).toLocaleString()}}
 					td
 						button(@click="logout(session)") Sign out
-			button(@click="logoutAll()") Sign out everywhere
-			button.red(@click="deleteAccount()") Delete your account
+		button(@click="logoutAll()") Sign out everywhere
+		button.red(@click="deleteAccount()") Delete your account
 </template>
 
 <script setup lang="ts">
@@ -124,6 +124,8 @@ onMounted(() =>
 </script>
 
 <style scoped>
+@import '../assets/style.css';
+
 th {
 	text-align: left;
 }

@@ -93,6 +93,8 @@ function addApp() {
 </script>
 
 <style scoped>
+@import '../assets/style.css';
+
 #apps-container {
 	@apply md:flex flex-wrap gap-x-4 justify-between max-w-max;
 }

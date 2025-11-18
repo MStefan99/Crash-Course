@@ -44,6 +44,8 @@ function rejectPrompt() {
 </script>
 
 <style scoped>
+@import '../assets/style.css';
+
 .popups {
 	position: fixed;
 	left: 0;

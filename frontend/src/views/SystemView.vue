@@ -137,6 +137,8 @@ onUnmounted(() => clearInterval(refreshInterval));
 </script>
 
 <style scoped>
+@import '../assets/style.css';
+
 .row > .card {
 	flex-basis: 500px;
 }

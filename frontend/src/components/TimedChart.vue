@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-//@ts-ignore
 import {Bar, Line} from 'vue-chartjs';
 
 import {
@@ -194,7 +193,9 @@ const options = ref({
 	},
 	plugins: {
 		legend: {labels: {color: props.color ?? '#000'}, ...(props.overview && {display: false})},
-		...(props.type === 'line' && {tooltip: {mode: 'index', intersect: false, position: 'nearest'}})
+		...(props.type === 'line' && {
+			tooltip: {mode: 'index', intersect: false, position: 'nearest'}
+		})
 	}
 });
 

@@ -1,3 +1,5 @@
+// deno-lint-ignore-file
+
 'use strict';
 
 const scriptLocation = new URL(import.meta.url);

@@ -71,8 +71,9 @@
 					h4 Pages
 					table.cells
 						thead
-							th URL
-							th(v-if="session.pages.length > 1") Viewed for
+							tr
+								th URL
+								th(v-if="session.pages.length > 1") Viewed for
 						tbody
 							tr(v-for="(page, p) in session.pages" :key="p")
 								td.break-all
@@ -183,6 +184,8 @@ onUnmounted(() => clearInterval(refreshInterval));
 </script>
 
 <style scoped>
+@import '../assets/style.css';
+
 .row .card {
 	flex-basis: 350px;
 }
