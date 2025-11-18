@@ -127,6 +127,10 @@ if (params.has('verbose')) {
 	console.error = wrapLog(3);
 }
 
+if (params.has('auto')) {
+	sendHit();
+}
+
 addEventListener('error', (e) => {
 	sendLog(
 		e.error?.stack ?? JSON.stringify(e.error),
